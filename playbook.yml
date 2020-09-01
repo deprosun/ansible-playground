@@ -1,0 +1,14 @@
+-   name: 'Terraform Vault'
+    hosts: localhost
+    tasks:
+        -   name: 'Get a secret'
+            debug:
+              msg: "{{ lookup('hashi_vault', 'secret=secret/data/hello:data token=s.qzbA8mZMdqm9qOddEMjUZKIO url=http://localhost:8200')}}"
+        
+        -   name: "loop through list"
+            debug:
+                msg: "An item: {{ item }}"
+            with_items:
+                - 1
+                - 2
+                - 3
